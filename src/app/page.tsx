@@ -2,6 +2,6 @@
 
 export default function Home() {
   return (
-    <h1>Cucko 2</h1>
+    <h1>Marin</h1>
   );
 }
