@@ -1,10 +1,10 @@
-import { Navbar } from "@/widgets/navbar";
-import { Hero } from "@/widgets/hero";
-import { About } from "@/widgets/about";
-import { MenuHighlights } from "@/widgets/menu-highlights";
-import { Gallery } from "@/widgets/gallery";
-import { ReservationCta } from "@/widgets/reservation-cta";
-import { Footer } from "@/widgets/footer";
+import { Navbar } from "@/widgets/home/navbar";
+import { Hero } from "@/widgets/home/hero";
+import { About } from "@/widgets/home/about";
+import { MenuHighlights } from "@/widgets/home/menu-highlights";
+import { Gallery } from "@/widgets/home/gallery";
+import { ReservationCta } from "@/widgets/home/reservation-cta";
+import { Footer } from "@/widgets/home/footer";
 
 export function HomePage() {
   return (
