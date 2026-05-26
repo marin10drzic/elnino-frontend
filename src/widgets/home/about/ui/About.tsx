@@ -6,7 +6,7 @@ export function About() {
         <div className="relative">
           <div className="aspect-[4/5] overflow-hidden relative">
             <img
-              src="/WhatsApp%20Image%202026-05-22%20at%2006.56.36%20%281%29.jpeg"
+              src="/landing_page/thirty-years.jpeg"
               alt="30 Jahre El Nigo Steakhouse"
               loading="lazy"
               className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"

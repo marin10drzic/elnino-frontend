@@ -3,7 +3,7 @@ export function ReservationCta() {
     <section id="reservations" className="relative py-32 px-6 overflow-hidden">
       {/* Terrace photo background */}
       <img
-        src="/WhatsApp%20Image%202026-05-22%20at%2006.56.51%20%281%29.jpeg"
+        src="/landing_page/interior-menus.jpeg"
         alt=""
         aria-hidden
         className="absolute inset-0 w-full h-full object-cover object-center"

@@ -1,31 +1,31 @@
 const photos = [
   {
-    src: "/WhatsApp%20Image%202026-05-22%20at%2006.56.23.jpeg",
+    src: "/landing_page/interior-dining.jpeg",
     alt: "Restaurant interior",
     cls: "col-span-2",
   },
   {
-    src: "/WhatsApp%20Image%202026-05-22%20at%2006.56.52%20%282%29.jpeg",
+    src: "/landing_page/cocktails-red.jpeg",
     alt: "Signature cocktails",
     cls: "",
   },
   {
-    src: "/WhatsApp%20Image%202026-05-22%20at%2006.57.00%20%281%29.jpeg",
+    src: "/landing_page/terrace-1.jpeg",
     alt: "Sunny terrace",
     cls: "",
   },
   {
-    src: "/WhatsApp%20Image%202026-05-22%20at%2006.56.56%20%282%29.jpeg",
+    src: "/landing_page/dessert-crepes.jpeg",
     alt: "Dessert platter",
     cls: "",
   },
   {
-    src: "/WhatsApp%20Image%202026-05-22%20at%2006.56.53%20%282%29.jpeg",
+    src: "/landing_page/cocktails-colorful.jpeg",
     alt: "Colorful cocktails",
     cls: "",
   },
   {
-    src: "/WhatsApp%20Image%202026-05-22%20at%2006.56.24.jpeg",
+    src: "/landing_page/bar.jpeg",
     alt: "El Nigo bar",
     cls: "col-span-2",
   },

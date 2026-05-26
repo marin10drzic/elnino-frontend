@@ -3,7 +3,7 @@ export function Hero() {
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Real interior photo background */}
       <img
-        src="/WhatsApp%20Image%202026-05-22%20at%2006.56.35.jpeg"
+        src="/landing_page/interior-long.jpeg"
         alt=""
         aria-hidden
         className="absolute inset-0 w-full h-full object-cover object-center"
