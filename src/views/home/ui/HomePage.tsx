@@ -6,6 +6,7 @@ import { MenuSection } from "@/widgets/home/menu-section";
 import { Gallery } from "@/widgets/home/gallery";
 import { ReservationCta } from "@/widgets/home/reservation-cta";
 import { Footer } from "@/widgets/home/footer";
+import { ChatWidget } from "@/widgets/home/chat-widget";
 
 export function HomePage() {
   return (
@@ -18,6 +19,7 @@ export function HomePage() {
       <Gallery />
       <ReservationCta />
       <Footer />
+      <ChatWidget />
     </main>
   );
 }
