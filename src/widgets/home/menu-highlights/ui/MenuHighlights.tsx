@@ -1,47 +1,27 @@
-const dishes = [
-  {
-    name: "Beef Carpaccio",
-    description: "Hauchdünn geschnittenes Rindfleisch, Parmesan, Cherry-Tomaten, Balsamico-Creme",
-    price: "€14,50",
-    image: "/landing_page/carpaccio.jpeg",
-    tag: "Vorspeise",
-  },
-  {
-    name: "El Nigo Grillplatte",
-    description: "Rindersteak, Cordon Bleu, Hähnchen, Lammkrone, Beilagen — für 2 Personen",
-    price: "€46,80",
-    image: "/landing_page/mixed-grill.jpeg",
-    tag: "Signature",
-  },
-  {
-    name: "Mix-Vorspeise",
-    description: "Knoblauchbrot, Alioli, Putenspiess, Chorizo, Mini-Mozzarella, Hackfleischbällchen — für 2 Personen",
-    price: "€35,80",
-    image: "/landing_page/starter-boards.jpeg",
-    tag: "Zum Teilen",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export function MenuHighlights() {
+  const t = useTranslations("highlights");
+
+  const dishes = [
+    { name: t("dish1Name"), description: t("dish1Desc"), price: "€14,50", image: "/landing_page/carpaccio.jpeg", tag: t("dish1Tag") },
+    { name: t("dish2Name"), description: t("dish2Desc"), price: "€46,80", image: "/landing_page/mixed-grill.jpeg", tag: t("dish2Tag") },
+    { name: t("dish3Name"), description: t("dish3Desc"), price: "€35,80", image: "/landing_page/starter-boards.jpeg", tag: t("dish3Tag") },
+  ];
+
   return (
     <section id="menu" className="bg-[#0a0908] py-28 px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-5">
             <div className="h-px w-12 bg-amber-500/60" />
-            <span className="text-amber-500 text-[10px] tracking-[0.5em] uppercase">
-              Unsere Empfehlungen
-            </span>
+            <span className="text-amber-500 text-[10px] tracking-[0.5em] uppercase">{t("tagline")}</span>
             <div className="h-px w-12 bg-amber-500/60" />
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-white">Signature Gerichte</h2>
-          <p className="text-stone-500 text-sm mt-4 max-w-md mx-auto leading-relaxed">
-            Hausgemacht mit Liebe — jedes Gericht ein Erlebnis.
-          </p>
+          <h2 className="font-serif text-4xl md:text-5xl text-white">{t("heading")}</h2>
+          <p className="text-stone-500 text-sm mt-4 max-w-md mx-auto leading-relaxed">{t("subheading")}</p>
         </div>
 
-        {/* Dish grid */}
         <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {dishes.map((dish) => (
             <div key={dish.name} className="group cursor-pointer">
@@ -62,7 +42,6 @@ export function MenuHighlights() {
                   <span className="font-serif text-2xl text-amber-400">{dish.price}</span>
                 </div>
               </div>
-
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <h3 className="font-serif text-xl text-white mb-2">{dish.name}</h3>
@@ -76,10 +55,10 @@ export function MenuHighlights() {
 
         <div className="text-center mt-14">
           <a
-            href="#"
+            href="#speisekarte"
             className="inline-flex items-center gap-3 px-9 py-4 border border-amber-500/40 text-amber-400 text-xs tracking-[0.25em] hover:border-amber-400 hover:bg-amber-500/5 transition-all duration-200"
           >
-            VOLLSTÄNDIGE SPEISEKARTE
+            {t("fullMenu").toUpperCase()}
             <span className="text-base">→</span>
           </a>
         </div>

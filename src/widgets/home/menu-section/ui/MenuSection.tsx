@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { useMenuCategories, useMenuItems } from "@/entities/menu";
 import { beilagen } from "./menuData";
 
@@ -9,6 +10,7 @@ function formatPrice(price: number): string {
 }
 
 export function MenuSection() {
+  const t = useTranslations("menu");
   const { data: categories, isLoading: catsLoading } = useMenuCategories();
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -32,12 +34,12 @@ export function MenuSection() {
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-4 mb-5">
             <div className="h-px w-12 bg-amber-500/60" />
-            <span className="text-amber-500 text-[10px] tracking-[0.5em] uppercase">El Nigo</span>
+            <span className="text-amber-500 text-[10px] tracking-[0.5em] uppercase">{t("tagline")}</span>
             <div className="h-px w-12 bg-amber-500/60" />
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">Speisekarte</h2>
+          <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">{t("heading")}</h2>
           <p className="text-stone-500 text-sm max-w-md mx-auto">
-            Alle Preise inkl. MwSt. und Bedienung. Allergene auf Anfrage.
+            {t("note")}
           </p>
         </div>
 
@@ -99,7 +101,7 @@ export function MenuSection() {
                 )}
                 {item.tags?.includes("sharing") && (
                   <span className="inline-block mt-2 text-[10px] tracking-widest text-amber-600 uppercase border border-amber-600/30 px-2 py-0.5">
-                    2 Personen
+                    {t("persons2")}
                   </span>
                 )}
               </div>
@@ -110,7 +112,7 @@ export function MenuSection() {
         {/* Beilagen note */}
         {isSteaks && (
           <div className="mt-10 border border-amber-500/15 p-6">
-            <p className="text-amber-500 text-[10px] tracking-[0.3em] uppercase mb-4">Beilagen</p>
+            <p className="text-amber-500 text-[10px] tracking-[0.3em] uppercase mb-4">{t("beilagen")}</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-3">
               {beilagen.map((b) => (
                 <div key={b.name} className="flex items-center justify-between gap-2">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { chatApi } from "@/entities/chat";
 
 type Message = {
@@ -10,6 +11,7 @@ type Message = {
 };
 
 export function ChatWidget() {
+  const t = useTranslations("chat");
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -69,7 +71,7 @@ export function ChatWidget() {
           if (last?.role === "assistant") {
             updated[updated.length - 1] = {
               ...last,
-              content: "Entschuldigung, es gab einen Fehler. Bitte versuchen Sie es erneut.",
+              content: t("error"),
               streaming: false,
             };
           }
@@ -104,14 +106,14 @@ export function ChatWidget() {
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
               <div>
-                <p className="text-white text-sm font-serif tracking-wide">Nigo</p>
-                <p className="text-stone-500 text-[10px] tracking-[0.3em] uppercase">El Nigo Assistant</p>
+                <p className="text-white text-sm font-serif tracking-wide">{t("title")}</p>
+                <p className="text-stone-500 text-[10px] tracking-[0.3em] uppercase">{t("subtitle")}</p>
               </div>
             </div>
             <button
               onClick={handleClose}
               className="text-stone-500 hover:text-stone-300 transition-colors w-7 h-7 flex items-center justify-center"
-              aria-label="Schließen"
+              aria-label={t("close")}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M18 6L6 18M6 6l12 12" />
@@ -128,17 +130,12 @@ export function ChatWidget() {
                   <span className="text-amber-500/60 text-[10px] tracking-[0.4em] uppercase">El Nigo</span>
                   <div className="h-px w-8 bg-amber-500/40" />
                 </div>
-                <p className="font-serif text-white text-lg mb-2">Willkommen</p>
+                <p className="font-serif text-white text-lg mb-2">{t("welcome")}</p>
                 <p className="text-stone-500 text-xs leading-relaxed max-w-[260px] mx-auto">
-                  Fragen zur Speisekarte, Allergene, Reservierungen oder Öffnungszeiten — ich helfe Ihnen gerne.
+                  {t("welcomeText")}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2 justify-center">
-                  {[
-                    "Speisekarte",
-                    "Tisch reservieren",
-                    "Öffnungszeiten",
-                    "Allergene",
-                  ].map((s) => (
+                  {[t("s1"), t("s2"), t("s3"), t("s4")].map((s) => (
                     <button
                       key={s}
                       onClick={() => {
@@ -188,7 +185,7 @@ export function ChatWidget() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ihre Nachricht..."
+              placeholder={t("placeholder")}
               disabled={isStreaming}
               className="flex-1 bg-[#161210] border border-amber-900/30 text-stone-300 text-xs px-3 py-2.5 placeholder-stone-600 focus:outline-none focus:border-amber-500/40 disabled:opacity-50 transition-colors"
             />
@@ -196,7 +193,7 @@ export function ChatWidget() {
               onClick={sendMessage}
               disabled={!input.trim() || isStreaming}
               className="px-4 py-2 bg-amber-500 text-black flex items-center justify-center hover:bg-amber-400 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-              aria-label="Senden"
+              aria-label={t("send")}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" />
@@ -210,7 +207,7 @@ export function ChatWidget() {
       <button
         onClick={() => setIsOpen((v) => !v)}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-amber-500 hover:bg-amber-400 text-black flex items-center justify-center shadow-lg shadow-amber-900/30 transition-all duration-200 hover:scale-105 active:scale-95"
-        aria-label="Chat öffnen"
+        aria-label={t("open")}
       >
         {isOpen ? (
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
