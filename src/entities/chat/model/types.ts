@@ -5,6 +5,7 @@ export type ChatMessage = {
 
 export type ChatSession = {
   session_id: string;
+  updated_at: string;
   messages: ChatMessage[];
 };
 
